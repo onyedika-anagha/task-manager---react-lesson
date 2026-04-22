@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-on-tertiary: #ffffff;
+  --color-tertiary: #924700;
+  --color-on-error-container: #93000a;
+  --color-secondary-fixed: #d8e2ff;
+  --color-on-tertiary-container: #fffbff;
+  --color-surface-tint: #005ac2;
+  --color-on-tertiary-fixed-variant: #723600;
+  --color-secondary-container: #b6ccff;
+  --color-on-error: #ffffff;
+  --color-on-secondary-fixed: #001a42;
+  --color-primary-fixed-dim: #adc6ff;
+  --color-surface-variant: #e1e2e4;
+  --color-surface-container-low: #f3f4f6;
+  --color-on-primary-container: #fefcff;
+  --color-on-background: #191c1e;
+  --color-tertiary-fixed-dim: #ffb786;
+  --color-primary: #0058be;
+  --color-secondary: #495e8a;
+  --color-on-surface-variant: #424754;
+  --color-on-primary-fixed-variant: #004395;
+  --color-surface-bright: #f8f9fb;
+  --color-outline-variant: #c2c6d6;
+  --color-on-primary: #ffffff;
+  --color-surface: #f8f9fb;
+  --color-error-container: #ffdad6;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #405682;
+  --color-primary-fixed: #d8e2ff;
+  --color-on-surface: #191c1e;
+  --color-on-secondary-fixed-variant: #304671;
+  --color-inverse-primary: #adc6ff;
+  --color-surface-container: #edeef0;
+  --color-primary-container: #2170e4;
+  --color-surface-container-highest: #e1e2e4;
+  --color-error: #ba1a1a;
+  --color-background: #f8f9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-inverse-surface: #2e3132;
+  --color-tertiary-container: #b75b00;
+  --color-tertiary-fixed: #ffdcc6;
+  --color-secondary-fixed-dim: #b1c6f9;
+  --color-inverse-on-surface: #f0f1f3;
+  --color-surface-container-high: #e7e8ea;
+  --color-surface-dim: #d9dadc;
+  --color-on-primary-fixed: #001a42;
+  --color-outline: #727785;
+  --color-on-tertiary-fixed: #311400;
+
+  --font-family-headline: "Manrope";
+  --font-family-body: "Manrope";
+  --font-family-label: "Manrope";
+
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  display: inline-flex;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
