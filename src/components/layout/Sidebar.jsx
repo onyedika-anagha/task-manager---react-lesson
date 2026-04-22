@@ -2,7 +2,15 @@ import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 import { NavLink } from "../ui/NavLink";
 
+const links = [
+  { icon: "today", label: "Today" },
+  { icon: "calendar_month", label: "Upcoming" },
+  { icon: "folder", label: "Projects" },
+  { icon: "inventory_2", label: "Archive" },
+];
+
 export function Sidebar() {
+  const [activeLink, setActiveLink] = React.useState("Today");
   return (
     <aside className="hidden lg:flex flex-col w-64 h-[calc(100vh-120px)] sticky top-24 font-manrope text-sm font-semibold space-y-4">
       {/* Sidebar Header */}
@@ -17,10 +25,15 @@ export function Sidebar() {
 
       {/* Navigation Menu */}
       <div className="space-y-1">
-        <NavLink icon="today" label="Today" active />
-        <NavLink icon="calendar_month" label="Upcoming" />
-        <NavLink icon="folder" label="Projects" />
-        <NavLink icon="inventory_2" label="Archive" />
+        {links.map((link) => (
+          <NavLink
+            key={link.icon}
+            icon={link.icon}
+            label={link.label}
+            active={activeLink === link.label}
+            onClick={() => setActiveLink(link.label)}
+          />
+        ))}
       </div>
 
       {/* New Project Button */}
