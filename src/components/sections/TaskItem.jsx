@@ -1,7 +1,8 @@
 import { Icon } from "../ui/Icon";
 import { Badge } from "../ui/Badge";
+import { format, formatDistance, formatRelative, subDays } from "date-fns";
 
-export function TaskItem({ task, completed = false }) {
+export function TaskItem({ task, completed = false, toggleTaskCompletion }) {
   return (
     <>
       <div
@@ -15,6 +16,7 @@ export function TaskItem({ task, completed = false }) {
                 ? "bg-primary flex items-center justify-center"
                 : "border-2 border-primary-container hover:bg-primary-container/10"
             }`}
+            onClick={() => toggleTaskCompletion(task.id)}
           >
             {completed && (
               <Icon name="check" className="text-white text-sm" filled />
@@ -31,7 +33,7 @@ export function TaskItem({ task, completed = false }) {
             >
               {task.title}
             </h4>
-            <Badge priority={task.priority}>{task.priorityLabel}</Badge>
+            <Badge priority={task.priority}>{task.priority}</Badge>
           </div>
 
           {/* Description */}
@@ -45,7 +47,9 @@ export function TaskItem({ task, completed = false }) {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-1.5 text-outline text-xs">
               <Icon name="calendar_today" className="text-sm" />
-              <span>{task.date}</span>
+              <span>
+                {format(new Date(task.dueDate), "MMM dd, yyyy 'at' h:mm a")}
+              </span>
             </div>
             {task.files && (
               <div className="flex items-center gap-1.5 text-outline text-xs">

@@ -1,6 +1,7 @@
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 import { NavLink } from "../ui/NavLink";
+import { useState } from "react";
 
 const links = [
   { icon: "today", label: "Today" },
@@ -10,7 +11,7 @@ const links = [
 ];
 
 export function Sidebar() {
-  const [activeLink, setActiveLink] = React.useState("Today");
+  const [activeLink, setActiveLink] = useState("Today");
   return (
     <aside className="hidden lg:flex flex-col w-64 h-[calc(100vh-120px)] sticky top-24 font-manrope text-sm font-semibold space-y-4">
       {/* Sidebar Header */}

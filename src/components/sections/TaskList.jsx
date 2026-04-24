@@ -1,40 +1,41 @@
 import { Icon } from "../ui/Icon";
 import { Card } from "../ui/Card";
 import { TaskItem } from "./TaskItem";
+import { useTasks } from "../../hooks/use-tasks";
 
-export function TaskList() {
-  const tasks = [
-    {
-      title: "Finalize Branding Guidelines",
-      description:
-        "Complete the typography and color palette documentation for the new visual identity project.",
-      priority: "high",
-      priorityLabel: "High Priority",
-      date: "Today, 5:00 PM",
-      files: 3,
-      completed: false,
-    },
-    {
-      title: "Stakeholder Sync Call",
-      description:
-        "Weekly sync with the engineering team to discuss the upcoming sprint goals and blockers.",
-      priority: "medium",
-      priorityLabel: "Medium",
-      date: "Tomorrow, 10:00 AM",
-      files: null,
-      completed: false,
-    },
-    {
-      title: "User Interview Scripts",
-      description:
-        "Prepare interview questions for the upcoming usability testing sessions.",
-      priority: "low",
-      priorityLabel: "Low",
-      date: "May 20, 2:00 PM",
-      files: null,
-      completed: true,
-    },
-  ];
+export function TaskList({ tasks, toggleTaskCompletion }) {
+  // const tasks = [
+  //   {
+  //     title: "Finalize Branding Guidelines",
+  //     description:
+  //       "Complete the typography and color palette documentation for the new visual identity project.",
+  //     priority: "high",
+  //     priorityLabel: "High Priority",
+  //     date: "Today, 5:00 PM",
+  //     files: 3,
+  //     completed: false,
+  //   },
+  //   {
+  //     title: "Stakeholder Sync Call",
+  //     description:
+  //       "Weekly sync with the engineering team to discuss the upcoming sprint goals and blockers.",
+  //     priority: "medium",
+  //     priorityLabel: "Medium",
+  //     date: "Tomorrow, 10:00 AM",
+  //     files: null,
+  //     completed: false,
+  //   },
+  //   {
+  //     title: "User Interview Scripts",
+  //     description:
+  //       "Prepare interview questions for the upcoming usability testing sessions.",
+  //     priority: "low",
+  //     priorityLabel: "Low",
+  //     date: "May 20, 2:00 PM",
+  //     files: null,
+  //     completed: true,
+  //   },
+  // ];
 
   return (
     <Card>
@@ -47,7 +48,12 @@ export function TaskList() {
       {/* Task List */}
       <div className="space-y-0">
         {tasks.map((task, index) => (
-          <TaskItem key={index} task={task} completed={task.completed} />
+          <TaskItem
+            key={index}
+            task={task}
+            completed={task.completed}
+            toggleTaskCompletion={toggleTaskCompletion}
+          />
         ))}
       </div>
     </Card>

@@ -60,6 +60,8 @@
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
+
+  --animate-duration: 0.4s;
 }
 
 body {
@@ -78,4 +80,7 @@ body {
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+}
+.animate__animated {
+  animation-duration: 0.4s !important;
 }

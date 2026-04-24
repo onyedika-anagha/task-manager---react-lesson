@@ -8,12 +8,15 @@ import { UpcomingDeadlines } from "./components/sections/UpcomingDeadlines";
 import { MotivationCard } from "./components/sections/MotivationCard";
 import { FloatingActionButton } from "./components/sections/FloatingActionButton";
 import { ModalOverlay } from "./components/sections/ModalOverlay";
+import { generateId } from "./lib/tasks";
+import { useTasks } from "./hooks/use-tasks";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const { tasks, addTask, stats, toggleTaskCompletion, clearTasks } =
+    useTasks();
 
   return (
     <div className="min-h-screen bg-surface-container-low">
@@ -28,18 +31,21 @@ function App() {
         {/* Main Content */}
         <main className="flex-1 space-y-12">
           {/* Page Header */}
-          <HeaderSection />
+          <HeaderSection stats={stats} />
 
           {/* Bento Grid - Main Content */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Task List - Left Column */}
             <div className="md:col-span-8">
-              <TaskList />
+              <TaskList
+                tasks={tasks}
+                toggleTaskCompletion={toggleTaskCompletion}
+              />
             </div>
 
             {/* Right Sidebar - Stats & Info */}
             <div className="md:col-span-4 space-y-8">
-              <StatsCard />
+              <StatsCard stats={stats} />
               <UpcomingDeadlines />
               <MotivationCard />
             </div>
@@ -50,7 +56,11 @@ function App() {
       {/* Floating Action Button */}
       <FloatingActionButton onCreateTask={openModal} />
       {/* Modal Overlay */}
-      <ModalOverlay isOpen={isModalOpen} onClose={closeModal} />
+      <ModalOverlay
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        addTask={addTask}
+      />
     </div>
   );
 }

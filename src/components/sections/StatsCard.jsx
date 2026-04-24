@@ -1,4 +1,4 @@
-export function StatsCard() {
+export function StatsCard({ stats }) {
   return (
     <div className="bg-primary text-white rounded-xl p-8 overflow-hidden relative">
       {/* Content Layer */}

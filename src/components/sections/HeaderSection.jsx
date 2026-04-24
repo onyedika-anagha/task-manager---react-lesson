@@ -1,6 +1,6 @@
 import { Badge } from "../ui/Badge";
 
-export function HeaderSection() {
+export function HeaderSection({ stats }) {
   const today = new Date();
   const options = { weekday: "long", month: "long", day: "numeric" };
   const dateString = today.toLocaleDateString("en-US", options);
@@ -14,8 +14,8 @@ export function HeaderSection() {
         <p className="text-outline text-lg mt-2">{dateString}</p>
       </div>
       <div className="flex gap-3">
-        <Badge priority="active">Active (8)</Badge>
-        <Badge priority="urgent">Urgent (2)</Badge>
+        <Badge priority="active">Active ({stats.pending})</Badge>
+        <Badge priority="urgent">Urgent ({stats.byPriority.high})</Badge>
       </div>
     </section>
   );
